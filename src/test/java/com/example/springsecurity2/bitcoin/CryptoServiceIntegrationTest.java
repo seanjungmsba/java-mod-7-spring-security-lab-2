@@ -10,35 +10,38 @@ public class CryptoServiceIntegrationTest {
 
     @Test // passed
     void shouldReturnPrice() {
+        String cryptoName = "bitcoin";
         CryptoService bitCoinService = new CryptoService();
-        BigDecimal currentPrice = bitCoinService.getCryptoPrice("bitcoin");
+        BigDecimal currentPrice = bitCoinService.getCryptoPrice(cryptoName);
         assertThat(currentPrice).isNotNull();
     }
 
     @Test // passed
     void shouldReturnId() {
+        String cryptoName = "bitcoin";
         CryptoService bitCoinService = new CryptoService();
-        String currentId = bitCoinService.getCryptoName();
+        String currentId = bitCoinService.getCryptoName(cryptoName);
         assertThat(currentId).isNotNull();
     }
 
-
     @Test // passed
     void shouldReturnConstantBitcoinPrice() {
+        String cryptoName = "bitcoin";
         CryptoService cryptoService = new CryptoService();
-        BigDecimal firstBitcoinPrice = cryptoService.getCryptoPrice("bitcoin");
+        BigDecimal firstBitcoinPrice = cryptoService.getCryptoPrice(cryptoName);
         assertThat(firstBitcoinPrice).isNotNull();
-        BigDecimal secondBitcoinPrice = cryptoService.getCryptoPrice("bitcoin");
+        BigDecimal secondBitcoinPrice = cryptoService.getCryptoPrice(cryptoName);
         assertThat(secondBitcoinPrice).isNotNull();
         assertThat(firstBitcoinPrice).isEqualTo(secondBitcoinPrice);
     }
 
     @Test // passed
     void shouldReturnConstantBitcoinId() {
+        String cryptoName = "bitcoin";
         CryptoService cryptoService = new CryptoService();
-        String firstBitcoinId = cryptoService.getCryptoName();
+        String firstBitcoinId = cryptoService.getCryptoName(cryptoName);
         assertThat(firstBitcoinId).isNotNull();
-        String secondBitcoinId = cryptoService.getCryptoName();
+        String secondBitcoinId = cryptoService.getCryptoName(cryptoName);
         assertThat(secondBitcoinId).isNotNull();
         assertThat(firstBitcoinId).isEqualTo(secondBitcoinId);
     }

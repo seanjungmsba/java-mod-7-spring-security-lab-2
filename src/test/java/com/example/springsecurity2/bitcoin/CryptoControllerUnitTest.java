@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 
 class CryptoControllerUnitTest {
     @Test // this test cares if I defined getBitcoinPrice() method correctly
-    void getBitcoinPrice() {
+    void getCryptoPrice() {
         CryptoService cryptoService = Mockito.mock(CryptoService.class);
         BigDecimal expected = BigDecimal.valueOf(23456.24);
         CryptoController cryptoController = new CryptoController(cryptoService);
@@ -21,15 +21,15 @@ class CryptoControllerUnitTest {
         assertEquals(expected, actual);
     }
 
-    @Test // this test cares if I defined getBitcoinPrice() method correctly
-    void getBitcoinId() {
+    @Test // this test cares if I defined getCryptoName() method correctly
+    void getCryptoName() {
         CryptoService cryptoService = Mockito.mock(CryptoService.class);
-        String expected = "bitcoin";
+        String cryptoName = "bitcoin";
         CryptoController cryptoController = new CryptoController(cryptoService);
-        when(cryptoService.getCryptoName()).thenReturn(expected);
-        System.out.println("expected: " + expected); // bitcoin
-        String actual = cryptoController.getCryptoName();
+        when(cryptoService.getCryptoName(cryptoName)).thenReturn(cryptoName);
+        System.out.println("expected: " + cryptoName); // bitcoin
+        String actual = cryptoController.getCryptoName(cryptoName);
         System.out.println("actual: " + actual);
-        assertEquals(expected, actual);
+        assertEquals(cryptoName, actual);
     }
 }

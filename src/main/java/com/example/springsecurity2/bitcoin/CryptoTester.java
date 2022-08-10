@@ -2,7 +2,7 @@ package com.example.springsecurity2.bitcoin;
 
 import java.math.BigDecimal;
 
-public class BitcoinTester {
+public class CryptoTester {
     public static void main(String[] args) {
         CryptoService cryptoService = new CryptoService();
         String id = cryptoService.getCryptoName();
